@@ -31,21 +31,7 @@ share: true
 ## 链表 ##
 1. 为了使代码结构统一，链表一般要使用**头结点**，即`ListNode *head`
 
+## 二叉树 ##
+1. 遍历时，需要空间复杂度为O(1)，则需要morris方法。
 
-## STL 技巧 ##
 
-* 迭代器操作
-
-    * `prev(itr, step = 1)`和`next(itr, step = 1)`，向前或向后迭代`step`步
-
-* STL二分搜索(binary_search)，执行一下操作是都要假定范围内已按顺序排好序 
-
-    * `upper_bound(first, last, &val)` - 返回[first, last)中第一个比`val`值大的迭代器 (类似的有`lower_bound`)
-
-    * `binary_search(first, last, &val)` - 在[first, last)区间内，二分查找`val`值，找到返回`true`，否则返回`false`
-
-* [unordered_map](http://www.cplusplus.com/reference/unordered_map/unordered_map/) 要点如下：
-    
-    * `find(key)` - 返回`unordered_map::iterator`; 没有返回`unordered_map::end()`
-    * `operator[]` - 如果没有，会自动增加元素
-    * `at(key)` - 如果没有，会抛异常
