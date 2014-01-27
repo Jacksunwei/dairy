@@ -2,7 +2,7 @@
 layout: post
 title: Leetcode 技巧总结
 description: "Leetcode 手记"
-modified: 2014-01-05
+modified: 2014-01-27
 tags: [leetcode, 技巧]
 image:
   feature: abstract-6.jpg
@@ -24,6 +24,9 @@ share: true
 ## 线性表类问题思路 ##
 1. O(n)算法一般通过两边扫描可以实现
 2. O(n<sup>2</sup>)及以上算法，可以先排序来简化问题。
+
+## 排序 ##
+1. 链表排序：单链表适合归并排序，双链表适合快速排序。
 
 ## 位运算 ##
 1. 异或 `^`
