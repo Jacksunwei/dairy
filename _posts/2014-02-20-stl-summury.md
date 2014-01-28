@@ -15,18 +15,55 @@ share: true
 基本操作
 -----------
 
-* 迭代器操作
-
-    * `iterator prev(itr, step = 1)`和`iterator next(itr, step = 1)`，向前或向后迭代`step`步，并返回一个更新的迭代器。
-
 算法
 ----
 
 * STL二分搜索(binary_search)，执行一下操作是都要假定范围内已按顺序排好序 
 
-    * `upper_bound(first, last, &val)` - 返回[first, last)中第一个比`val`值大的迭代器 (类似的有`lower_bound`)
-
+    * `lower_bound(first, last, &val)` - 返回[first, last)中第一个不比`val`值小的迭代器
+    * `upper_bound(first, last, &val)` - 返回[first, last)中第一个比`val`值大的迭代器 
     * `binary_search(first, last, &val)` - 在[first, last)区间内，二分查找`val`值，找到返回`true`，否则返回`false`
+
+* `lower_bound(first, last, &val)`的实现：
+
+{% highlight cpp %}
+template <class ForwardIterator, class T>
+  ForwardIterator lower_bound (ForwardIterator first, ForwardIterator last,
+                               const T& val) 
+{
+    while (first != last) {
+        auto mid = next(first, distance(first, last) / 2);
+        if (*mid < val) first = ++mid; // 这里是++mid
+        else last = mid;
+    }
+    return first;
+}
+{% endhighlight %}
+
+* `upper_bound(first, last, &val)`的实现
+
+{% highlight cpp %}
+template <class ForwardIterator, class T>
+  ForwardIterator upper_bound (ForwardIterator first, ForwardIterator last,
+                               const T& val) 
+{
+    while (first != last) {
+        auto mid = next(first, distance(first, last) / 2);
+        if (*mid <= val) first = ++mid; // 只有这里与lower_bound不同
+        else last = mid;
+    }
+    return first;
+}
+{% endhighlight %}
+
+
+迭代器
+-----
+
+* 迭代器的操作：
+
+    * `void advance (InputIterator& it, Distance n)`将`it`向前迭代`n`步
+    * `iterator prev(itr, step = 1)`和`iterator next(itr, step = 1)`，向前或向后迭代`step`步，并返回一个更新的迭代器。
 
 容器
 ----
