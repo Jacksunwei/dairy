@@ -27,7 +27,7 @@ share: true
 
 ## 排序 ##
 1. 链表排序：单链表适合归并排序，双链表适合快速排序。
-2. `stl::lower_bound`和`stl::upper_bound`的实现, 参见[STL常用只是]({% post_url 2014-02-20-stl-summury %})
+2. `stl::lower_bound`和`stl::upper_bound`的实现, 参见[STL常用知识]({% post_url 2014-02-20-stl-summury %})
 
 ## 位运算 ##
 1. 异或 `^`
